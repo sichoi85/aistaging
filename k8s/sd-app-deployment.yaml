@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sdapp
+  template:
+    metadata:
+      labels:
+        app: sdapp
+    spec:
+      containers:
+      - name: sdapp
+        image: friday0013/automatic_api_listen_ext:v1.1
+        ports:
+        - containerPort: 80
+#        command: ["docker"]
+#        args: ["run", "-p", "80:8080", "--gpus", "all", "-it", "friday0013/automatic_api_listen_ext:v1.0"]

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grounded-sam-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grounded-sam-api
+  template:
+    metadata:
+      labels:
+        app: grounded-sam-api
+    spec:
+      containers:
+      - name: grounded-sam-api
+        imagePullPolicy: Never
+        image: friday0013/grounded-sam-api:v0
+        command: 
+        - nvidia-smi
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+    nodeSelector:
+      nvidia.com/gpu: 'true'
