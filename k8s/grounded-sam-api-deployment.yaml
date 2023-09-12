@@ -14,12 +14,11 @@ spec:
     spec:
       containers:
       - name: grounded-sam-api
-        imagePullPolicy: Never
         image: friday0013/grounded-sam-api:v0
-        command: 
-        - nvidia-smi
         resources:
           limits:
-            nvidia.com/gpu: 1
-    nodeSelector:
-      nvidia.com/gpu: 'true'
+            nvidia.com/gpu: 1 # requesting 1 GPU
+      tolerations:
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule

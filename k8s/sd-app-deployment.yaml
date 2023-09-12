@@ -15,7 +15,10 @@ spec:
       containers:
       - name: sdapp
         image: friday0013/automatic_api_listen_ext:v1.1
-        ports:
-        - containerPort: 80
-#        command: ["docker"]
-#        args: ["run", "-p", "80:8080", "--gpus", "all", "-it", "friday0013/automatic_api_listen_ext:v1.0"]
+        resources:
+          limits:
+            nvidia.com/gpu: 1 # requesting 1 GPU
+      tolerations:
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule
