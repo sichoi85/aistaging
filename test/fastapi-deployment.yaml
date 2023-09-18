@@ -14,5 +14,5 @@ spec:
     spec:
       containers:
       - name: fastapi
-        imagePullPolicy: Never
-        image: fastapi:v1.0
+        imagePullPolicy: IfNotPresent
+        image: fastapiapp:latest
