@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: grounded-sam-api
-        image: friday0013/grounded-sam-api:v0
+        image: friday0013/grounded_sam_api:v1.3
         resources:
           limits:
             nvidia.com/gpu: 1 # requesting 1 GPU

@@ -15,4 +15,4 @@ spec:
       containers:
       - name: fastapi
         imagePullPolicy: IfNotPresent
-        image: friday0013/fastapi:v1.0
+        image: fastapi:v1.2
